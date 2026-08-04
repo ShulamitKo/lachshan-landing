@@ -108,15 +108,47 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
 .demo-dot { width: 11px; height: 11px; border-radius: 50%; }
 .demo-title { margin-right: 10px; font-size: 12.5px; letter-spacing: .06em; color: var(--muted); font-weight: 400; }
 .demo-live { margin-right: auto; display: inline-flex; align-items: center; gap: 7px; font-size: 11px; letter-spacing: .1em; color: rgba(var(--accent-rgb),.85); }
-.demo-body { padding: 26px 26px 30px; min-height: 300px; display: flex; flex-direction: column; gap: 12px; }
-.demo-caption { align-self: flex-start; max-width: 78%; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.07); border-radius: 14px 14px 14px 4px; padding: 13px 18px; font-size: 15px; line-height: 1.65; color: rgba(228,228,240,.85); opacity: 0; transform: translateY(12px); transition: all .5s cubic-bezier(.22,.68,0,1.1); }
-.demo-caption .who { display: block; font-size: 11px; letter-spacing: .08em; color: var(--muted); margin-bottom: 4px; }
-.demo-caption.shown { opacity: 1; transform: translateY(0); }
 .demo-whisper { align-self: flex-end; max-width: 82%; background: linear-gradient(135deg, rgba(var(--accent-rgb),.13), rgba(var(--accent2-rgb),.05)); border: 1px solid rgba(var(--accent-rgb),.4); border-radius: 14px 14px 4px 14px; padding: 14px 18px; font-size: 15px; line-height: 1.65; color: var(--white); opacity: 0; transform: translateY(12px); transition: all .5s cubic-bezier(.22,.68,0,1.1); box-shadow: 0 8px 34px rgba(var(--accent-rgb),.16); }
 .demo-whisper.shown { opacity: 1; transform: translateY(0); }
 .demo-whisper .who { display: block; font-size: 11px; letter-spacing: .08em; color: var(--orange-2); margin-bottom: 4px; font-weight: 700; }
 .demo-note { text-align: center; margin-top: 18px; font-size: 13px; color: var(--muted); letter-spacing: .04em; }
 .demo-note strong { color: rgba(var(--accent-rgb),.9); font-weight: 700; }
+
+/* The demo is one screen: the video call, and Lachshan's private panel beside it.
+   Not a chat with Lachshan — that was the old version, and it sold the wrong idea. */
+.demo-stage { display: flex; gap: 14px; padding: 18px; min-height: 330px; }
+.meet-pane { flex: 1 1 auto; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.meet-grid { flex: 1 1 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-height: 190px; }
+.meet-tile { position: relative; border-radius: 13px; background: linear-gradient(160deg, #1B2733, #131C25); border: 1px solid rgba(255,255,255,.07); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.meet-tile.is-self { background: linear-gradient(160deg, #17242E, #101922); }
+.meet-avatar { width: 62px; height: 62px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; font-weight: 700; color: rgba(255,255,255,.82); background: rgba(var(--accent-rgb),.16); border: 1px solid rgba(var(--accent-rgb),.28); }
+.meet-name { position: absolute; bottom: 9px; right: 11px; font-size: 12px; color: rgba(240,242,248,.95); background: rgba(0,0,0,.42); padding: 3px 9px; border-radius: 7px; }
+.meet-muted-badge { position: absolute; top: 9px; left: 11px; font-size: 10.5px; letter-spacing: .05em; color: rgba(228,228,240,.72); }
+/* the ring that pulses on whoever is talking — the cue that the call is live */
+.meet-speaking { position: absolute; inset: 0; border-radius: 13px; border: 2px solid rgba(var(--accent-rgb),0); transition: border-color .35s; pointer-events: none; }
+.meet-speaking.on { border-color: rgba(var(--accent-rgb),.75); }
+.meet-captions { min-height: 54px; display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px; border-radius: 11px; background: rgba(0,0,0,.42); border: 1px solid rgba(255,255,255,.05); }
+.meet-cc-tag { flex: none; font-size: 10px; letter-spacing: .12em; color: rgba(228,228,240,.72); border: 1px solid rgba(255,255,255,.12); border-radius: 5px; padding: 2px 6px; margin-top: 2px; }
+.meet-cc-text { font-size: 14px; line-height: 1.6; color: rgba(240,242,248,.97); opacity: 0; transition: opacity .35s; }
+.meet-cc-text.shown { opacity: 1; }
+.meet-bar { display: flex; justify-content: center; gap: 9px; }
+.meet-btn { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.07); display: flex; align-items: center; justify-content: center; font-size: 9.5px; color: rgba(228,228,240,.5); }
+.meet-btn.is-cc { background: rgba(var(--accent-rgb),.18); color: rgba(var(--accent-rgb),.95); font-weight: 700; }
+.meet-btn.is-leave { background: rgba(239,98,98,.75); }
+
+.lachshan-pane { flex: 0 0 288px; display: flex; flex-direction: column; border-radius: 13px; background: rgba(var(--accent-rgb),.045); border: 1px solid rgba(var(--accent-rgb),.3); overflow: hidden; }
+.lachshan-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 13px; border-bottom: 1px solid rgba(var(--accent-rgb),.16); background: rgba(var(--accent-rgb),.07); }
+.lachshan-mark { font-size: 12.5px; font-weight: 700; color: var(--orange-2); }
+.lachshan-private { font-size: 10.5px; letter-spacing: .06em; color: rgba(228,228,240,.78); border: 1px solid rgba(255,255,255,.22); border-radius: 20px; padding: 2px 8px; }
+.lachshan-feed { flex: 1 1 auto; display: flex; flex-direction: column; gap: 9px; padding: 13px; overflow: hidden; }
+.demo-whisper { background: linear-gradient(135deg, rgba(18,40,45,.96), rgba(14,32,36,.96)); border: 1px solid rgba(var(--accent-rgb),.5); border-radius: 12px; padding: 11px 13px; font-size: 13.5px; line-height: 1.65; color: #F2F6F7; opacity: 0; transform: translateY(10px); transition: all .5s cubic-bezier(.22,.68,0,1.1); box-shadow: 0 8px 34px rgba(var(--accent-rgb),.16); }
+.demo-whisper.shown { opacity: 1; transform: translateY(0); }
+.demo-whisper .who { display: block; font-size: 11px; letter-spacing: .08em; color: #5FE6D4; margin-bottom: 5px; font-weight: 700; }
+
+@media (max-width: 720px) {
+ .demo-stage { flex-direction: column; padding: 14px; }
+ .lachshan-pane { flex: 1 1 auto; }
+}
 
 /* ===== STATS ===== */
 .stats { position: relative; z-index: 1; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -306,9 +338,11 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
  .founder-card { flex-direction: column; text-align: center; }
  .light-wrap, .story, .pricing-section, .founder { padding-left: 22px; padding-right: 22px; }
  .demo-section { padding-left: 16px; padding-right: 16px; }
- .demo-caption, .demo-whisper { max-width: 94%; }
+ .demo-whisper { max-width: 100%; }
  #sticky-cta { display: block; }
 }
+
+
 
 </style>
 </head>
@@ -378,9 +412,41 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
    <span class="demo-title">שיחת מכירה · Google Meet · כתוביות פועלות</span>
    <span class="demo-live"><span class="live-dot"></span>לחשן מקשיב</span>
   </div>
-  <div class="demo-body" id="demo-body"></div>
+  <div class="demo-stage">
+   <div class="meet-pane">
+    <div class="meet-grid">
+     <div class="meet-tile">
+      <span class="meet-avatar">ד</span>
+      <span class="meet-name">דני · לקוח</span>
+      <span class="meet-speaking" id="meet-speaking"></span>
+     </div>
+     <div class="meet-tile is-self">
+      <span class="meet-avatar">א</span>
+      <span class="meet-name">את/ה</span>
+      <span class="meet-muted-badge">מצלמה פועלת</span>
+     </div>
+    </div>
+    <div class="meet-captions" id="meet-captions">
+     <span class="meet-cc-tag">כתוביות</span>
+     <span class="meet-cc-text" id="meet-cc-text"></span>
+    </div>
+    <div class="meet-bar">
+     <span class="meet-btn"></span><span class="meet-btn"></span>
+     <span class="meet-btn is-cc">CC</span>
+     <span class="meet-btn"></span><span class="meet-btn is-leave"></span>
+    </div>
+   </div>
+
+   <aside class="lachshan-pane">
+    <div class="lachshan-head">
+     <span class="lachshan-mark">🤫 לחשן</span>
+     <span class="lachshan-private">רק את/ה רואה</span>
+    </div>
+    <div class="lachshan-feed" id="demo-body"></div>
+   </aside>
+  </div>
  </div>
- <p class="demo-note">ככה זה נראה אצלך על המסך: השיחה משמאל, <strong>הלחישות של לחשן</strong> מימין. רק את/ה רואים אותן.</p>
+ <p class="demo-note">זו לא שיחה עם לחשן. זו <strong>שיחת הווידאו שלך</strong> — ולחשן פותח חלונית בצד <strong>רק אצלך</strong>. הצד השני לא רואה אותה, ולא יודע שהיא שם.</p>
 </section>
 
 <!-- STATS -->
@@ -736,6 +802,8 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
   { type: 'caption', who: 'הלקוח', text: 'בסדר, שלחו לי הצעה מסודרת ונתקדם.' },
   { type: 'whisper', who: '🤫 לחשן', text: 'סיכום מוכן: פיילוט + חיבור API, לשלוח הצעה עד מחר. רוצה שאנסח את מייל הפולו-אפ?' }
  ];
+ const ccText   = document.getElementById('meet-cc-text');
+ const speaking = document.getElementById('meet-speaking');
  let idx = 0, started = false;
 
  function addLine() {
@@ -743,16 +811,37 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
    setTimeout(() => {
     body.style.transition = 'opacity .6s';
     body.style.opacity = '0';
-    setTimeout(() => { body.innerHTML = ''; body.style.opacity = '1'; idx = 0; addLine(); }, 700);
+    setTimeout(() => {
+     body.innerHTML = ''; body.style.opacity = '1';
+     if (ccText) { ccText.classList.remove('shown'); ccText.textContent = ''; }
+     idx = 0; addLine();
+    }, 700);
    }, 4200);
    return;
   }
   const item = script[idx];
-  const div = document.createElement('div');
-  div.className = item.type === 'whisper' ? 'demo-whisper' : 'demo-caption';
-  div.innerHTML = '<span class="who">' + item.who + '</span>' + item.text;
-  body.appendChild(div);
-  requestAnimationFrame(() => requestAnimationFrame(() => div.classList.add('shown')));
+
+  if (item.type === 'caption') {
+   /* What the other side says belongs in the call's own caption strip —
+      it is not a message anyone sent to Lachshan. */
+   if (ccText) {
+    ccText.classList.remove('shown');
+    setTimeout(() => { ccText.textContent = item.text; ccText.classList.add('shown'); }, 180);
+   }
+   if (speaking) {
+    speaking.classList.add('on');
+    setTimeout(() => speaking.classList.remove('on'), 1700);
+   }
+  } else {
+   const div = document.createElement('div');
+   div.className = 'demo-whisper';
+   div.innerHTML = '<span class="who">' + item.who + '</span>' + item.text;
+   body.appendChild(div);
+   /* the panel is short on purpose — keep the newest two whispers */
+   while (body.children.length > 2) body.removeChild(body.firstChild);
+   requestAnimationFrame(() => requestAnimationFrame(() => div.classList.add('shown')));
+  }
+
   idx++;
   setTimeout(addLine, item.type === 'whisper' ? 2600 : 1900);
  }
@@ -944,6 +1033,8 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
  const form = document.getElementById('apply-form');
  const success = document.getElementById('apply-success');
  if (!form) return;
+ // Web3Forms public client-side relay key - same one as the site's contact forms (not a secret)
+ const WEB3FORMS_KEY = 'bc2a5d5e-79c0-47e0-bdd8-7187510e5760';
  form.addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = form.querySelector('.apply-submit');
@@ -953,7 +1044,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-     access_key: 'bc2a5d5e-79c0-47e0-bdd8-7187510e5760',
+     access_key: WEB3FORMS_KEY,
      subject: 'לחשן - בקשת הצטרפות Founding 50',
      from_name: 'דף הנחיתה של לחשן',
      name: form.querySelector('#f-name').value,
@@ -969,7 +1060,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
    } else { throw new Error('submit failed'); }
   } catch (err) {
    btn.disabled = false; btn.textContent = 'שמרו לי מקום ב-Founding 50';
-   alert('משהו השתבש בשליחה. אפשר לנסות שוב בעוד רגע, או לפנות דרך האתר shulamit-ai.vercel.app');
+   alert('משהו השתבש בשליחה. אפשר לנסות שוב בעוד רגע, או לפנות דרך האתר shulamit-ai.co.il');
   }
  });
 })();
@@ -991,5 +1082,296 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
 })();
 </script>
 
-</body>
+<script>
+/* ===== PAGE · EDIT MODE v1 (additive, self-contained) =====
+   Canva-style edit layer for landing pages (flow layout, RTL, scrolling).
+   Architecture: patch-over-pristine. Every committed change is an invertible op
+   {t, sel, ...}. The live DOM is edited for WYSIWYG; export rebuilds the page
+   from the pristine stash + a single patch script that re-applies the ops AFTER
+   the page's own scripts (hydration/typewriter/count-up safe, with re-assertion
+   sweeps). Style ops become !important CSS rules - layout ops desktop-scoped so
+   mobile breakpoints stay intact; color ops apply everywhere. */
+(function(){
+  if(window.__pgEditInit) return; window.__pgEditInit=true;
+  var SELF_SRC = document.currentScript ? document.currentScript.textContent : '';
+
+  /* ---------- parts injected by inject_editor.py ---------- */
+  function readJSON(id, fb){ var el=document.getElementById(id); if(!el) return fb;
+    try{ return JSON.parse(el.textContent); }catch(e){ return fb; } }
+  var CFG = readJSON('ed-config', {});
+  CFG.sections = CFG.sections || 'body > section, body > header, body > footer, main > section, main > header';
+  /* the editor's own transient state classes (pe-hover/pe-selected) must not
+     poison the prefix-deny - on classless elements class becomes exactly "pe-hover" */
+  CFG.deny = (CFG.deny || '') + (CFG.deny ? ',' : '') + '.hl-word,[id^="pe-"],[class^="pe-"]:not(.pe-text):not(.pe-img-block):not(.pe-hover):not(.pe-selected):not(.pe-locked-hover)';
+  CFG.lock = CFG.lock || '';
+  var BASE = readJSON('ed-base', {ops:[]});
+  var stashEl = document.getElementById('ed-pristine');
+
+  var FILE = decodeURIComponent((location.pathname.split('/').pop()||'page')).replace(/\.html?$/i,'');
+  var LS_OPS = 'pgEdit:'+FILE, LS_RESET = 'pgEdit:reset:'+FILE;
+
+  var edOn=false, selected=null, editState=null, drag=null;
+  var ops=[], redoStack=[], persistTimer=null, lastNudge={el:null,t:0};
+  var clipInternal=null, insCounter=0, fileHandle=null;
+  var resetBase=false; try{ resetBase = localStorage.getItem(LS_RESET)==='1'; }catch(e){}
+  var baseOps = resetBase ? [] : (BASE.ops||[]);
+
+  function isPe(el){ return !!(el && el.closest && el.closest('[id^="pe-"],.pe-del,.pe-handle')); }
+  function matches(el,sel){ if(!el||!el.matches||!sel) return false; try{ return el.matches(sel); }catch(e){ return false; } }
+
+  /* mark our own DOM writes so the sentinel doesn't flag them as script-owned */
+  function selfWrite(fn){
+    window.__edSelf=true;
+    try{ return fn(); }
+    finally{ if(window.__edObs) try{ window.__edObs.takeRecords(); }catch(e){} window.__edSelf=false; }
+  }
+
+  /* ---------- selector engine (stable across reloads) ---------- */
+  function goodId(el){ return el.id && !/^(ed-|pe-)/.test(el.id) && document.querySelectorAll('#'+(window.CSS&&CSS.escape?CSS.escape(el.id):el.id)).length===1; }
+  function cssPath(el){
+    if(el.nodeType!==1) el=el.parentElement;
+    if(!el) return null;
+    if(goodId(el)) return '#'+CSS.escape(el.id);
+    var parts=[], cur=el;
+    while(cur && cur.nodeType===1 && cur!==document.documentElement){
+      if(goodId(cur)){ parts.unshift('#'+CSS.escape(cur.id)); return parts.join(' > '); }
+      var pi=cur.getAttribute && cur.getAttribute('data-pe-i');
+      if(pi){ parts.unshift('[data-pe-i="'+pi+'"]'); return parts.join(' > '); }
+      if(cur===document.body){ parts.unshift('body'); return parts.join(' > '); }
+      var p=cur.parentElement; if(!p) break;
+      var idx=1, sib=cur.previousElementSibling;
+      while(sib){ if(!isPe(sib) && sib.id!=='ed-sentinel') idx++; sib=sib.previousElementSibling; }
+      parts.unshift(cur.tagName.toLowerCase()+':nth-child('+idx+')');
+      cur=p;
+    }
+    parts.unshift('body');
+    return parts.join(' > ');
+  }
+  function resolve(sel){ try{ return document.querySelector(sel); }catch(e){ return null; } }
+
+  /* ---------- editor stylesheet (css ops render here) ---------- */
+  var styleEl=document.createElement('style'); styleEl.id='pe-style'; document.head.appendChild(styleEl);
+  var edRules={}; /* key sel+'|'+scope -> {prop:val} */
+  /* double the selector (#x#x / [a][a]) so editor rules out-specify the page's
+     own !important rules (e.g. mobile font-size:clamp() !important on headings) */
+  function bump(sel){ return sel.indexOf(' ')===-1 ? sel+sel : sel; }
+  function renderRules(){
+    var all='', desk='';
+    for(var k in edRules){
+      var i=k.lastIndexOf('|'), sel=k.slice(0,i), scope=k.slice(i+1), props=edRules[k], body='';
+      for(var p in props){ if(props[p]!=null) body+=p+':'+props[p]+' !important;'; }
+      if(!body) continue;
+      var rule=bump(sel)+'{'+body+'}';
+      if(scope==='desktop') desk+=rule; else all+=rule;
+    }
+    styleEl.textContent = all + (desk?('@media (min-width:769px){'+desk+'}'):'');
+  }
+  function cssGet(sel,scope,prop){ var r=edRules[sel+'|'+scope]; return r?(prop in r?r[prop]:null):null; }
+
+  /* ---------- ops engine ---------- */
+  function applyOp(op){
+    return selfWrite(function(){
+      var el;
+      switch(op.t){
+        case 'html':
+          el=resolve(op.sel); if(!el) return false;
+          if(op.prev===undefined) op.prev=el.innerHTML;
+          el.innerHTML=op.html; return true;
+        case 'attr':
+          el=resolve(op.sel); if(!el) return false;
+          if(op.prev===undefined) op.prev=el.hasAttribute(op.name)?el.getAttribute(op.name):null;
+          if(op.val==null) el.removeAttribute(op.name); else el.setAttribute(op.name,op.val);
+          return true;
+        case 'css':
+          var key=op.sel+'|'+(op.scope||'all');
+          if(op.prev===undefined){ op.prev={}; for(var p in op.props) op.prev[p]=cssGet(op.sel,op.scope||'all',p); }
+          edRules[key]=edRules[key]||{};
+          for(var q in op.props) edRules[key][q]=op.props[q];
+          renderRules(); return true;
+        case 'ins':
+          var ref=resolve(op.ref); if(!ref) return false;
+          var tmp=document.createElement('div'); tmp.innerHTML=op.html;
+          var node=tmp.firstElementChild; if(!node) return false;
+          node.setAttribute('data-pe-i', op.id);
+          if(op.where==='before') ref.parentNode.insertBefore(node,ref);
+          else if(op.where==='append') ref.appendChild(node);
+          else ref.parentNode.insertBefore(node,ref.nextSibling);
+          return true;
+        case 'rm':
+          el=resolve(op.sel); if(!el) return false;
+          if(op.html===undefined){ op.html=liteClean(el).outerHTML; op.parent=cssPath(el.parentElement); op.index=childIndex(el); }
+          el.remove(); return true;
+        case 'mv':
+          el=resolve(op.sel); if(!el) return false;
+          if(op.fromParent===undefined) op.fromParent=cssPath(el.parentElement);
+          if(op.prevIndex===undefined) op.prevIndex=childIndex(el);
+          var par=resolve(op.parent)||el.parentElement;
+          moveToIndex(par,el,op.index); return true;
+      }
+      return false;
+    });
+  }
+  function childIndex(el){
+    var i=0, sib=el.parentElement?el.parentElement.firstElementChild:null;
+    while(sib){ if(sib===el) return i; if(!isPe(sib)) i++; sib=sib.nextElementSibling; }
+    return i;
+  }
+  function realChildren(par){
+    var out=[], sib=par.firstElementChild;
+    while(sib){ if(!isPe(sib)) out.push(sib); sib=sib.nextElementSibling; }
+    return out;
+  }
+  function moveToIndex(par,el,idx){
+    var kids=realChildren(par).filter(function(k){return k!==el;});
+    var ref=kids[idx]||null;
+    if(ref) par.insertBefore(el,ref); else par.appendChild(el);
+  }
+  function invertOp(op){
+    selfWrite(function(){
+      var el;
+      switch(op.t){
+        case 'html': el=resolve(op.sel); if(el) el.innerHTML=op.prev; break;
+        case 'attr': el=resolve(op.sel); if(el){ if(op.prev==null) el.removeAttribute(op.name); else el.setAttribute(op.name,op.prev); } break;
+        case 'css':
+          var key=op.sel+'|'+(op.scope||'all');
+          edRules[key]=edRules[key]||{};
+          for(var p in op.prev) edRules[key][p]=op.prev[p];
+          renderRules(); break;
+        case 'ins': el=resolve('[data-pe-i="'+op.id+'"]'); if(el) el.remove(); break;
+        case 'rm':
+          var par=resolve(op.parent); if(!par) break;
+          var tmp=document.createElement('div'); tmp.innerHTML=op.html;
+          var node=tmp.firstElementChild; if(!node) break;
+          var kids=realChildren(par), ref=kids[op.index]||null;
+          if(ref) par.insertBefore(node,ref); else par.appendChild(node);
+          break;
+        case 'mv': el=resolve(op.sel); if(el){ var pp=resolve(op.fromParent)||resolve(op.parent)||el.parentElement; moveToIndex(pp,el,op.prevIndex); } break;
+      }
+    });
+  }
+  function doOp(op){
+    if(!applyOp(op)){ toast('לא הצלחתי להחיל את השינוי'); return false; }
+    ops.push(op); redoStack.length=0; schedulePersist(); return true;
+  }
+  function undo(){
+    var op=ops.pop(); if(!op){ toast('אין מה לבטל'); return; }
+    deselect(); invertOp(op); redoStack.push(op); schedulePersist(); toast('בוטל');
+  }
+  function redo(){
+    var op=redoStack.pop(); if(!op){ toast('אין מה להחזיר'); return; }
+    deselect(); applyOp(op); ops.push(op); schedulePersist(); toast('הוחזר');
+  }
+
+  /* merge consecutive css ops on the same element (nudges), drop no-ops */
+  function compactOps(list){
+    var out=[];
+    for(var i=0;i<list.length;i++){
+      var op=list[i], last=out[out.length-1];
+      if(op.t==='css' && last && last.t==='css' && last.sel===op.sel && (last.scope||'all')===(op.scope||'all')){
+        for(var p in op.props) last.props[p]=op.props[p];
+        continue;
+      }
+      if(op.t==='html' && last && last.t==='html' && last.sel===op.sel){ last.html=op.html; continue; }
+      out.push(JSON.parse(JSON.stringify(op)));
+    }
+    return out;
+  }
+  function exportOps(){ /* prev values are session-only */
+    return compactOps(baseOps.concat(ops)).map(function(op){
+      var c={}; for(var k in op){ if(k!=='prev'&&k!=='prevIndex') c[k]=op[k]; } return c;
+    });
+  }
+
+  /* ---------- standalone patch applier (embedded into exported pages) ---------- */
+  /*ED_APPLIER_START*/
+  function edStandalonePatch(OPS){
+    var IMP=' !important;';
+    function res(s){ try{ return document.querySelector(s); }catch(e){ return null; } }
+    function realKids(par){ var out=[],s=par.firstElementChild; while(s){ out.push(s); s=s.nextElementSibling; } return out; }
+    function apply(){
+      var css={};
+      for(var i=0;i<OPS.length;i++){
+        var op=OPS[i], el;
+        try{
+          if(op.t==='html'){ el=res(op.sel); if(el) el.innerHTML=op.html; else console.warn('ed-patch miss',op.sel); }
+          else if(op.t==='attr'){ el=res(op.sel); if(el){ if(op.val==null) el.removeAttribute(op.name); else el.setAttribute(op.name,op.val); } else console.warn('ed-patch miss',op.sel); }
+          else if(op.t==='css'){ var k=op.sel+'|'+(op.scope||'all'); css[k]=css[k]||{}; for(var p in op.props){ if(op.props[p]==null) delete css[k][p]; else css[k][p]=op.props[p]; } }
+          else if(op.t==='ins'){ el=res(op.ref); if(el){ var t=document.createElement('div'); t.innerHTML=op.html; var n=t.firstElementChild; if(n){ n.setAttribute('data-pe-i',op.id);
+            if(op.where==='before') el.parentNode.insertBefore(n,el); else if(op.where==='append') el.appendChild(n); else el.parentNode.insertBefore(n,el.nextSibling); } } else console.warn('ed-patch miss',op.ref); }
+          else if(op.t==='rm'){ el=res(op.sel); if(el) el.remove(); }
+          else if(op.t==='mv'){ el=res(op.sel); if(el){ var par=res(op.parent)||el.parentElement; var kids=realKids(par).filter(function(x){return x!==el;}); var ref=kids[op.index]||null; if(ref) par.insertBefore(el,ref); else par.appendChild(el); } }
+        }catch(e){ console.warn('ed-patch op failed',op,e); }
+      }
+      var all='',desk='';
+      function bump(s){ return s.indexOf(' ')===-1 ? s+s : s; }
+      for(var key in css){ var j=key.lastIndexOf('|'),sel=key.slice(0,j),scope=key.slice(j+1),body='';
+        for(var q in css[key]) body+=q+':'+css[key][q]+IMP;
+        if(body){ var rule=bump(sel)+'{'+body+'}'; if(scope==='desktop') desk+=rule; else all+=rule; } }
+      var st=document.getElementById('ed-patch-css');
+      if(!st){ st=document.createElement('style'); st.id='ed-patch-css'; document.head.appendChild(st); }
+      st.textContent=all+(desk?('@media (min-width:769px){'+desk+'}'):'');
+    }
+    apply();
+    /* re-assert text/attr edits that async scripts (typewriter, count-up,
+       IO-driven rebuilds) overwrite after we ran */
+    [1500,4000,8000].forEach(function(ms){
+      setTimeout(function(){
+        for(var i=0;i<OPS.length;i++){
+          var op=OPS[i], el;
+          if(op.t==='html'){ el=res(op.sel); if(el && el.innerHTML!==op.html) el.innerHTML=op.html; }
+          else if(op.t==='attr'){ el=res(op.sel); if(el && op.val!=null && el.getAttribute(op.name)!==op.val) el.setAttribute(op.name,op.val); }
+        }
+      },ms);
+    });
+  }
+  /*ED_APPLIER_END*/
+
+  /* ---------- autosave / restore / reset ---------- */
+  function persist(){
+    try{ localStorage.setItem(LS_OPS, JSON.stringify({ts:Date.now(), ops:compactOps(ops)})); }
+    catch(e){ toast('גיבוי אוטומטי נכשל - שמור ידנית'); }
+  }
+  function schedulePersist(){ clearTimeout(persistTimer); persistTimer=setTimeout(persist,800); }
+  function checkRestore(){
+    var data; try{ data=JSON.parse(localStorage.getItem(LS_OPS)||'null'); }catch(e){ return; }
+    if(!data || !data.ops || !data.ops.length) return;
+    /* AUTO-restore: the user's autosaved edits are re-applied on every reload, so
+       "edit -> refresh -> still there" just works without clicking anything. */
+    data.ops.forEach(function(op){ if(applyOp(op)) ops.push(op); });
+    var bar=document.createElement('div'); bar.id='pe-restore';
+    var lbl=document.createElement('span'); lbl.textContent='✓ העריכות שלך נשמרות אוטומטית · '+data.ops.length+' שינויים';
+    var b2=mkBtn('התחל מחדש מהמקור', resetAll);
+    var b3=mkBtn('הבנתי', function(){ bar.remove(); }, 'primary');
+    bar.appendChild(lbl); bar.appendChild(b2); bar.appendChild(b3);
+    document.body.appendChild(bar);
+    setTimeout(function(){ if(bar.parentNode) bar.remove(); }, 9000);
+  }
+  function resetAll(){
+    if(!confirm('לאפס את הדף לגרסה המקורית? כל העריכות (כולל שמורות) יימחקו.')) return;
+    try{ localStorage.removeItem(LS_OPS); localStorage.setItem(LS_RESET,'1'); }catch(e){}
+    location.reload();
+  }
+
+  /* ---------- pristine stash + export ---------- */
+  function pristineHTML(){
+    if(!stashEl) return null;
+    try{
+      var bin=atob(stashEl.textContent.trim());
+      var bytes=new Uint8Array(bin.length);
+      for(var i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+      return new TextDecoder('utf-8').decode(bytes);
+    }catch(e){ return null; }
+  }
+  function b64(str){
+    var bytes=new TextEncoder().encode(str), bin='';
+    for(var i=0;i<bytes.length;i++) bin+=String.fromCharCode(bytes[i]);
+    return btoa(bin);
+  }
+  function buildClean(){
+    flushTextEdit();
+    var pris=pristineHTML();
+    if(pris==null){ toast('שגיאה: לא נמצא עותק מקור'); return null; }
+    var all=exportOps();
+    if(!all.length) return pris;
+    var patch='</body>
 </html>
