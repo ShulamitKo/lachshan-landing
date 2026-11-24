@@ -348,6 +348,91 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
 
 
 </style>
+<!-- lp-analytics:start -->
+<script>
+/* LP Analytics on Google Analytics 4 - inlined into every landing page by add_analytics.py.
+ * G-ZM7F5BRJT3 and lachshan are filled in by the injector. No database of ours: GA stores everything.
+ * Sends: page_view (GA itself) + scroll_depth {percent} + cta_click / contact_click {label, kind, link_url}
+ *        + generate_lead {form} on any form submit. Every event carries {site}.
+ * Owner opt-out per browser: open any page once with ?lpa=off (?lpa=on to undo).
+ * Manual: lpa('lead') -> generate_lead · lpa('watched_video') -> custom event.
+ */
+(function () {
+  var GA = "G-ZM7F5BRJT3", SITE = "lachshan";
+  var qs = new URLSearchParams(location.search), LS = null;
+  try { LS = window.localStorage; } catch (e) {}
+  function get(k) { try { return LS && LS.getItem(k); } catch (e) { return null; } }
+  try {
+    if (qs.get("lpa") === "off") LS.setItem("lpa_optout", "1");
+    if (qs.get("lpa") === "on") LS.removeItem("lpa_optout");
+  } catch (e) {}
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  if (get("lpa_optout") === "1") { window["ga-disable-" + GA] = true; window.lpa = function () {}; return; }
+
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA;
+  document.head.appendChild(s);
+  gtag("js", new Date());
+  gtag("set", { site: SITE });
+  var cfg = { site: SITE };
+  // links shared as ?src=ig (the quiz convention) count as utm_source in GA
+  if (qs.get("src") && !qs.get("utm_source")) {
+    var u = new URL(location.href);
+    u.searchParams.set("utm_source", qs.get("src"));
+    if (!u.searchParams.get("utm_medium")) u.searchParams.set("utm_medium", "referral");
+    cfg.page_location = u.href;
+  }
+  gtag("config", GA, cfg);
+
+  function ev(name, params) { params = params || {}; params.site = SITE; gtag("event", name, params); }
+
+  // scroll depth 25 / 50 / 75 / 100
+  var hit = {}, t = null;
+  function scroll() {
+    var h = document.documentElement.scrollHeight, seen = (window.scrollY || 0) + window.innerHeight;
+    var pct = h ? seen / h * 100 : 100;
+    [25, 50, 75, 100].forEach(function (m) {
+      if (pct >= m - 1 && !hit[m]) { hit[m] = 1; ev("scroll_depth", { percent: m }); }
+    });
+  }
+  window.addEventListener("scroll", function () {
+    if (t) return;
+    t = setTimeout(function () { t = null; scroll(); }, 300);
+  }, { passive: true });
+  // a page shorter than the screen is fully seen without any scroll event
+  window.addEventListener("load", function () { setTimeout(scroll, 1500); });
+
+  // clicks: WhatsApp / phone are contact_click (count as leads), everything else cta_click
+  document.addEventListener("click", function (e) {
+    var el = e.target && e.target.closest ? e.target.closest("a,button,[data-lpa],[role=button],input[type=submit]") : null;
+    if (!el) return;
+    var label = (el.getAttribute("data-lpa") || el.getAttribute("aria-label") || el.innerText || el.value || "")
+      .replace(/\s+/g, " ").trim().slice(0, 100) || "(ללא טקסט)";
+    var href = el.getAttribute("href") || "", kind = "button";
+    if (/wa\.me|whatsapp/i.test(href)) kind = "whatsapp";
+    else if (/^tel:/i.test(href)) kind = "phone";
+    else if (/^mailto:/i.test(href)) kind = "email";
+    else if (/^https?:/i.test(href) && el.hostname && el.hostname !== location.hostname) kind = "external";
+    else if (href) kind = "link";
+    ev(kind === "whatsapp" || kind === "phone" ? "contact_click" : "cta_click",
+       { label: label, kind: kind, link_url: href.slice(0, 100) });
+  }, true);
+
+  // any form submit = lead
+  document.addEventListener("submit", function (e) {
+    var f = e.target;
+    ev("generate_lead", { form: ((f && (f.getAttribute("data-lpa") || f.id || f.getAttribute("name"))) || "form").slice(0, 100) });
+  }, true);
+
+  window.lpa = function (name, params) {
+    if (!name) return;
+    ev(name === "lead" ? "generate_lead" : String(name).slice(0, 40), params || {});
+  };
+})();
+</script>
+<!-- lp-analytics:end -->
 </head>
 <body>
 
