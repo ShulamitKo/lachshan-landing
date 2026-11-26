@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0F1720">
 <title>לחשן - הסופלר החכם של הפגישות שלך</title>
-<meta name="description" content="לחשן הוא עוזר AI חי לפגישות Google Meet בעברית: מקשיב לשיחה ולוחש לך תובנות, תשובות ונקודות שאסור לפספס - בחלונית פרטית שרק את/ה רואים. הכל נשאר אצלך במחשב.">
+<meta name="description" content="לחשן הוא עוזר AI חי לפגישות Google Meet ו-Zoom בדפדפן, בעברית: מקשיב לכתוביות ולוחש לך תשובות ונקודות שאסור לפספס - בחלונית פרטית שרק את/ה רואים. התמלול וההיסטוריה נשמרים אצלך במחשב.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap');
 
@@ -248,7 +248,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
 .pricing-head h2 .gold { background: linear-gradient(120deg, var(--orange), var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .pricing-head p { font-size: clamp(16px,1.8vw,19px); line-height: 1.75; color: rgba(228,228,240,.75); }
 .pricing-head p strong { color: var(--white); }
-.pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+.pricing-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; align-items: stretch; max-width: 860px; margin-inline: auto; }
 .price-card { padding: 44px 36px 40px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 24px; position: relative; overflow: hidden; transition: all .35s; transform-style: preserve-3d; will-change: transform; display: flex; flex-direction: column; }
 .price-card:hover { border-color: rgba(var(--accent-rgb),.22); background: rgba(var(--accent-rgb),.04); box-shadow: 0 30px 70px rgba(0,0,0,.4); }
 .price-spotlight { position: absolute; inset: 0; border-radius: 24px; background: radial-gradient(circle 200px at 50% 50%, rgba(var(--accent-rgb),.06) 0%, transparent 70%); opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 1; }
@@ -457,7 +457,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
  </div>
  <div class="nav-center">
   <div class="pill pill-orange"><span class="live-dot"></span>מסלול השקה · 50 מקומות</div>
-  <div class="pill pill-white">עברית · Google Meet</div>
+  <div class="pill pill-white">עברית · Meet ו-Zoom</div>
  </div>
  <a href="#apply" class="nav-cta">אני רוצה מקום</a>
 </nav>
@@ -465,7 +465,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
 <!-- HERO -->
 <section class="hero">
  <div class="hero-inner">
-  <div class="pre-head"><span class="pre-dot"></span>למי שמוכרים, מלווים ומראיינים ב-Google Meet</div>
+  <div class="pre-head"><span class="pre-dot"></span>למי שמוכרים, מלווים ומראיינים ב-Meet וב-Zoom</div>
 
   <h1 class="hero-h1">
    <span class="h1-solid">בפגישות החשובות שלך יושב מהיום </span><span class="h1-warm">סופלר חכם</span><span class="h1-solid"> - שלוחש לך בדיוק מה שחשוב, בזמן אמת, בלי שהצד השני רואה.</span>
@@ -473,7 +473,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
 
   <div class="bli-chips">
    <span class="bli-chip"><span class="bli-chip-x">×</span>בלי בוט שנכנס לפגישה</span>
-   <span class="bli-chip"><span class="bli-chip-x">×</span>בלי הקלטה לענן</span>
+   <span class="bli-chip"><span class="bli-chip-x">×</span>בלי הקלטת שמע</span>
    <span class="bli-chip"><span class="bli-chip-x">×</span>בלי לאבד את הקשב</span>
   </div>
 
@@ -542,7 +542,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
  <div class="stats-inner">
   <div class="stat-item">
    <div class="stat-num" data-target="100"><span class="stat-countup">100</span><span class="stat-suffix">%</span></div>
-   <div class="stat-label">מקומי ופרטי - אצלך במחשב</div>
+   <div class="stat-label">מהתמלול וההיסטוריה נשמרים אצלך במחשב</div>
   </div>
   <div class="stat-item">
    <div class="stat-num" data-target="0"><span class="stat-countup">0</span></div>
@@ -553,8 +553,8 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
    <div class="stat-label">פריסטים מקצועיים מוכנים</div>
   </div>
   <div class="stat-item">
-   <div class="stat-num" data-target="30"><span class="stat-countup">30</span><span class="stat-suffix"> שנ'</span></div>
-   <div class="stat-label">מהרגע שנאמר ועד הלחישה</div>
+   <div class="stat-num" data-target="4"><span class="stat-countup">4</span><span class="stat-suffix"> שנ'</span></div>
+   <div class="stat-label">מלחיצה על "עזרה עכשיו" ועד הלחישה</div>
   </div>
  </div>
 </section>
@@ -573,7 +573,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
  <ul class="story-list">
   <li class="fadeup-ready" style="--delay:0s"><span class="li-icon">🤫</span><span><strong>לחישות בזמן אמת</strong> - טיפול בהתנגדות, שאלת המשך, נקודה שאסור לפספס - בזמן שזה עוד משנה</span></li>
   <li class="fadeup-ready" style="--delay:.08s"><span class="li-icon">📚</span><span><strong>מבוסס על הידע שלך</strong> - המחירון, ההצעה, הסקריפט והפרוטוקול שלך, לא ידע כללי מהאינטרנט</span></li>
-  <li class="fadeup-ready" style="--delay:.16s"><span class="li-icon">🔒</span><span><strong>פרטי באמת</strong> - בלי בוט בפגישה, בלי ענן חובה. התמלול והידע נשארים אצלך במחשב</span></li>
+  <li class="fadeup-ready" style="--delay:.16s"><span class="li-icon">🔒</span><span><strong>פרטי באמת</strong> - בלי בוט בפגישה ובלי שרת שלנו שרואה אותה. התמלול, ההיסטוריה והידע נשמרים אצלך במחשב; רק קטע התמלול האחרון נשלח למנוע ה-AI שבחרת, כדי לייצר את הלחישה</span></li>
  </ul>
 
  <div class="quote-block">
@@ -594,13 +594,13 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
     <div class="bento-icon">🤫</div>
     <div class="bento-hero-content">
      <div class="bento-h3">לחישות חיות, בעברית, בחלונית שרק את/ה רואים</div>
-     <div class="bento-text">לחשן קורא את כתוביות השיחה בזמן אמת ולוחש הצעות המשך, תשובות להתנגדויות ותזכורות - <strong>בלי להיכנס לפגישה ובלי שהצד השני יודע</strong>. וכשצריך עזרה מיידית יש כפתור "עזרה עכשיו".</div>
+     <div class="bento-text">לחשן קורא את כתוביות השיחה בזמן אמת ולוחש הצעות המשך, תשובות להתנגדויות ותזכורות - <strong>בלי להיכנס לפגישה ובלי שהצד השני יודע</strong>. וכשצריך עזרה מיידית יש כפתור "עזרה עכשיו" (או Alt+H), שעונה תוך כ-4 שניות. אפשר גם לשאול את לחשן שאלה באמצע השיחה, בהקלדה או בהקלטה, ולשמור תזכורות לפגישה.</div>
     </div>
    </div>
    <div class="bento-card bento-third fadeup-ready" style="--delay:.06s"><div class="bento-num">01</div><div class="bento-tag">KB</div><div class="bento-icon">📚</div><div class="bento-h3">מאגר ידע אישי</div><div class="bento-text">מעלים את המחירון, ההצעה או הסקריפט שלך - והלחישות נשענות <strong>על הידע שלך</strong>, לא על ידע כללי.</div></div>
    <div class="bento-card bento-third fadeup-ready" style="--delay:.12s"><div class="bento-num">02</div><div class="bento-tag">PRESETS</div><div class="bento-icon">🎭</div><div class="bento-h3">9 פריסטים מקצועיים</div><div class="bento-text">מכירות, אפיון וייעוץ, ראיון עבודה, שירות, הרצאה, אינטייק ועוד - כל אחד עם הנחיות משלו.</div></div>
-   <div class="bento-card bento-third fadeup-ready" style="--delay:.18s"><div class="bento-num">03</div><div class="bento-tag">SUMMARY</div><div class="bento-icon">📝</div><div class="bento-h3">סיכום בלחיצה</div><div class="bento-text">בכל רגע בפגישה - ובסופה - מקבלים סיכום מסודר: מה סוכם, מה הוחלט, ומה הצעד הבא.</div></div>
-   <div class="bento-card bento-half fadeup-ready" style="--delay:.24s"><div class="bento-num">04</div><div class="bento-tag">HISTORY</div><div class="bento-icon">🗂️</div><div class="bento-h3">היסטוריית פגישות</div><div class="bento-text">כל פגישה נשמרת אצלך במחשב: תמלול, לחישות וסיכום. חיפוש חופשי וייצוא בלחיצה.</div></div>
+   <div class="bento-card bento-third fadeup-ready" style="--delay:.18s"><div class="bento-num">03</div><div class="bento-tag">SUMMARY</div><div class="bento-icon">📝</div><div class="bento-h3">סגירת פגישה וסיכום</div><div class="bento-text">בלחיצה אחת בסוף השיחה: מה סוכם, מה נשאר פתוח, מה הצעד הבא, ומשפט סגירה מוכן. עם טיוטת מייל המשך.</div></div>
+   <div class="bento-card bento-half fadeup-ready" style="--delay:.24s"><div class="bento-num">04</div><div class="bento-tag">HISTORY</div><div class="bento-icon">🗂️</div><div class="bento-h3">היסטוריית פגישות</div><div class="bento-text">כל פגישה נשמרת אצלך במחשב: תמלול, לחישות וסיכום, עם חיפוש חופשי וייצוא בלחיצה. ומסך ניהול אחד שבו מדליקים וכובים את לחשן, מכינים פגישה ופותחים Meet או Zoom.</div></div>
    <div class="bento-card bento-half fadeup-ready" style="--delay:.3s"><div class="bento-num">05</div><div class="bento-tag">PRIVACY</div><div class="bento-icon">🔒</div><div class="bento-h3">מצב פרטי מוחלט</div><div class="bento-text">מתג אחד - ושום דבר לא נכתב לדיסק. לשיחות רגישות. <strong>נבדק ונאכף בקוד.</strong></div></div>
   </div>
  </div>
@@ -618,13 +618,13 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
     <div class="step-num">01</div>
     <div class="step-emoji">⬇️</div>
     <div class="step-h3">מתקינים פעם אחת</div>
-    <div class="step-text">תוסף כרום קטן + לחשן שרץ אצלך על המחשב. יש מדריך מצולם, ובמסלול ההשקה - אונבורדינג אישי איתי.</div>
+    <div class="step-text">קובץ התקנה אחד ותוסף Chrome. אחרי זה הכול דרך מסך הניהול: מדליקים במתג, מדביקים מפתח AI, ופותחים פגישה. בלי להתקין שום דבר נוסף. במסלול ההשקה - אונבורדינג אישי איתי.</div>
    </div>
    <div class="step-card fadeup-ready" style="--delay:.08s">
     <div class="step-num">02</div>
     <div class="step-emoji">🎬</div>
     <div class="step-h3">נכנסים לפגישה ומדליקים כתוביות</div>
-    <div class="step-text">פגישת Google Meet רגילה, לוחצים על כפתור הכתוביות (CC) בעברית - וזהו. לחשן מזהה לבד שהשיחה התחילה.</div>
+    <div class="step-text">פגישת Google Meet רגילה או Zoom בדפדפן, לוחצים על כפתור הכתוביות (CC) בעברית - וזהו. לחשן מזהה לבד שהשיחה התחילה.</div>
    </div>
    <div class="step-card fadeup-ready" style="--delay:.16s">
     <div class="step-num">03</div>
@@ -645,20 +645,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
  </div>
 
  <div class="pricing-cards">
-  <div class="price-card fadeup-ready" style="--delay:0s">
-   <div class="price-spotlight"></div>
-   <div class="price-tag">STARTER · לטעום</div>
-   <div class="price-num">₪0</div>
-   <div class="price-vat">חינם, בלי כרטיס אשראי</div>
-   <div class="price-room">מתחילים ומרגישים את הקסם</div>
-   <ul class="price-bullets">
-    <li>לחישות חיות בפגישות Meet</li>
-    <li>פריסט מקצועי אחד לבחירה</li>
-    <li>סיכום פגישה בלחיצה</li>
-    <li>הכל מקומי ופרטי, כמו בכל המסלולים</li>
-   </ul>
-   <a href="#apply" class="price-cta ghost">אני רוצה לנסות</a>
-  </div>
+  
 
   <div class="price-card featured fadeup-ready" style="--delay:.08s">
    <div class="price-spotlight"></div>
@@ -695,7 +682,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
  </div>
 
  <div class="pricing-why fadeup-ready">
-  <strong>ולמה בכלל זה זול כל כך?</strong> כי אין לנו שרתים שרואים את הפגישות שלך. לחשן עובד עם מפתח AI אישי שלך (עלות של שקלים בודדים לחודש שימוש, יש מדריך של 5 דקות להשיג אחד) - <span class="warm">המפתח שלך, הדאטה שלך, החיסכון שלך.</span> ולפגישה רגישה במיוחד יש תמיד את המצב הפרטי המוחלט.
+  <strong>ולמה בכלל זה זול כל כך?</strong> כי אין לנו שרתים שרואים את הפגישות שלך. לחשן עובד עם מפתח AI אישי שלך (בדרך כלל כמה שקלים בחודש, לפי השימוש. יש מדריך של 5 דקות להשיג אחד) - <span class="warm">המפתח שלך, הדאטה שלך, החיסכון שלך.</span> ולפגישה רגישה במיוחד יש תמיד את המצב הפרטי המוחלט.
  </div>
 </section>
 
@@ -707,13 +694,13 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
 
   <div class="fit-grid" style="margin-bottom:90px">
    <div class="fit-col yes fadeup-ready"><div class="fit-h3 yes">לחשן בשבילך אם...</div><ul class="fit-list yes">
-    <li><span class="fit-icon yes">✓</span>את/ה מוכר/ת, מלווה או מייעצ/ת ללקוחות בפגישות Google Meet</li>
+    <li><span class="fit-icon yes">✓</span>את/ה מוכר/ת, מלווה או מייעצ/ת ללקוחות בפגישות Google Meet או Zoom בדפדפן</li>
     <li><span class="fit-icon yes">✓</span>קשה לך להקשיב, לרשום ולזכור מה להגיד - בו-זמנית</li>
     <li><span class="fit-icon yes">✓</span>פרטיות השיחות שלך היא קו אדום (ייעוץ, מכירות, גיוס)</li>
     <li><span class="fit-icon yes">✓</span>יש לך ידע עסקי (מחירון, הצעות, סקריפטים) שהיית רוצה שיהיה זמין לך בשיחה</li>
    </ul></div>
    <div class="fit-col no fadeup-ready" style="--delay:.08s"><div class="fit-h3 no">כנראה שלא, אם...</div><ul class="fit-list no">
-    <li><span class="fit-icon no">×</span>הפגישות שלך בטלפון או בזום - בשלב הזה לחשן עובד על Google Meet בדפדפן Chrome</li>
+    <li><span class="fit-icon no">×</span>הפגישות שלך בטלפון או באפליקציית Zoom למחשב - בשלב הזה לחשן עובד על Google Meet ועל Zoom בדפדפן Chrome</li>
     <li><span class="fit-icon no">×</span>את/ה מחפש/ת רק סיכום אחרי הפגישה - יש כלים פשוטים יותר לזה</li>
     <li><span class="fit-icon no">×</span>מחפשים פתרון למוקד של עשרות נציגים - לזה יש לנו מסלול הטמעה נפרד, דברו איתי</li>
    </ul></div>
@@ -729,11 +716,11 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
    </details>
    <details class="faq-item fadeup-ready" style="--delay:.05s">
     <summary>מה קורה עם התמלול של הפגישות שלי?<span class="faq-arrow">▾</span></summary>
-    <div class="faq-body">נשאר <strong>אצלך במחשב</strong>. אין לנו שרת שרואה את הפגישות שלך - התמלול, הלחישות והסיכומים נשמרים מקומית. ולפגישות רגישות במיוחד יש "מצב פרטי מוחלט": שום דבר לא נכתב לדיסק, אפילו אצלך.</div>
+    <div class="faq-body">נשמר <strong>אצלך במחשב</strong>. אין לנו שרת שרואה את הפגישות שלך: התמלול, הלחישות והסיכומים נשמרים מקומית. לצורך הלחישה נשלח למנוע ה-AI שבחרת קטע התמלול האחרון בלבד, בדרך כלל כ-30 שורות. ולפגישות רגישות במיוחד יש "מצב פרטי מוחלט": שום דבר לא נכתב לדיסק, אפילו אצלך.</div>
    </details>
    <details class="faq-item fadeup-ready" style="--delay:.1s">
     <summary>מה צריך כדי להתחיל?<span class="faq-arrow">▾</span></summary>
-    <div class="faq-body">מחשב עם Chrome, פגישות ב-Google Meet, ומפתח AI אישי (חשבון אצל ספק כמו Anthropic או OpenAI - <strong>יש מדריך של 5 דקות</strong>, והעלות היא שקלים בודדים לחודש שימוש). מצטרפי Founding 50 עוברים את כל ההקמה יחד איתי בזום.</div>
+    <div class="faq-body">מחשב Windows עם Chrome, פגישות ב-Google Meet או ב-Zoom בדפדפן, ומפתח AI אישי (חשבון אצל ספק כמו Anthropic או OpenAI - <strong>יש מדריך של 5 דקות</strong>, והעלות היא שקלים בודדים לחודש שימוש). מצטרפי Founding 50 עוברים את כל ההקמה יחד איתי בזום.</div>
    </details>
    <details class="faq-item fadeup-ready" style="--delay:.15s">
     <summary>זה באמת עובד בעברית?<span class="faq-arrow">▾</span></summary>
@@ -745,7 +732,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
    </details>
    <details class="faq-item fadeup-ready" style="--delay:.25s">
     <summary>המוצר חדש. למה שאסמוך עליו?<span class="faq-arrow">▾</span></summary>
-    <div class="faq-body">בצדק. אז ככה: לחשן נבנה ונבדק לעומק (46 בדיקות אוטומטיות על כל צינור הלחישות, האבטחה והפרטיות), המסלול החינמי מאפשר לטעום בלי סיכון, ומצטרפי ההשקה מקבלים קו ישיר אליי. אני לא מבטיחה שהכל מושלם ביום הראשון - אני מבטיחה שאת/ה לא לבד.</div>
+    <div class="faq-body">בצדק. אז ככה: לחשן נבנה ונבדק לעומק (יותר מ-200 בדיקות אוטומטיות על הלחישות, האבטחה, הפרטיות וההתקנה), 14 ימי הניסיון החינם מאפשרים לטעום בלי סיכון, ומצטרפי ההשקה מקבלים קו ישיר אליי. אני לא מבטיחה שהכל מושלם ביום הראשון - אני מבטיחה שאת/ה לא לבד.</div>
    </details>
   </div>
  </div>
@@ -796,7 +783,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
  <svg class="footer-logo" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="128" height="128" rx="28" fill="#0F1720"/><circle cx="92" cy="64" r="9" fill="#2DD4BF"/><path d="M 74 46 A 26 26 0 0 0 74 82" fill="none" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" opacity="0.85"/><path d="M 57 34 A 43 43 0 0 0 57 94" fill="none" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" opacity="0.5"/><path d="M 40 22 A 61 61 0 0 0 40 106" fill="none" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" opacity="0.25"/></svg>
  <span class="footer-mark">לחשן</span>
  <div class="footer-tagline">לוחש לך את המשפט הנכון, ברגע הנכון</div>
- <div class="footer-meta">נבנה ע"י שולמית קורנבלי · כל הזכויות שמורות · 2026<br>הכל נשאר אצלך: אין לנו שרת שרואה את הפגישות שלך.</div>
+ <div class="footer-meta">נבנה ע"י שולמית קורנבלי · כל הזכויות שמורות · 2026<br>אין לנו שרת שרואה את הפגישות שלך. התמלול וההיסטוריה נשמרים אצלך; רק קטע התמלול האחרון נשלח למנוע ה-AI שבחרת.</div>
 </footer>
 
 <!-- STICKY MOBILE CTA -->
@@ -820,7 +807,7 @@ h1.hero-h1 { font-family: var(--brand-font), sans-serif; font-weight: 900; font-
 (function() {
  const el = document.getElementById('sub-promise-el');
  if (!el) return;
- const fullHTML = 'לחשן קורא את הכתוביות החיות של Google Meet, מבין לאן השיחה הולכת, <strong>ולוחש לך תובנות, תשובות להתנגדויות ונקודות שאסור לפספס</strong> - בחלונית פרטית שרק את/ה רואים. <span class="warm">והכל נשאר אצלך במחשב.</span>';
+ const fullHTML = 'לחשן קורא את הכתוביות החיות של Google Meet ושל Zoom בדפדפן, מבין לאן השיחה הולכת, <strong>ולוחש לך תובנות, תשובות להתנגדויות ונקודות שאסור לפספס</strong> - בחלונית פרטית שרק את/ה רואים. <span class="warm">והתמלול וההיסטוריה נשמרים אצלך במחשב.</span>';
 
  function tokenize(html) {
   const tokens = []; let i = 0;
